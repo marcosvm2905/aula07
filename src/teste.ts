@@ -1,11 +1,15 @@
-import { log, lerLogs } from "./logger";
+import { adicionar, concluir, remover, lerTarefas } from "./tarefas";
 
 async function testar() {
-  await log("Primeira mensagem de log!");
-  await log("Testando o appendFile...");
+  console.log("Tarefas iniciais:", await lerTarefas());
   
-  const todosOsLogs = await lerLogs();
-  console.log("Logs salvos no arquivo:", todosOsLogs);
+  await adicionar("Estudar para Sistemas");
+
+
+  //await concluir(1);
+  //await remover(1);
+
+  console.log("Tarefas finais:", await lerTarefas());
 }
 
 testar();
